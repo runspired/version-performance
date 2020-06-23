@@ -146,6 +146,8 @@ async function startServer(config, variant) {
 
     console.log(`\n🔶Starting Server (${variant}): ${cmd}\n`);
     let server = execa.command(cmd, { shell: 'bash' });
+    server.stdout.pipe(process.stdout);
+    server.stderr.pipe(process.stderr);
     await waitForServer(url);
     console.log(`\n🟢Server Started\n`);
 
