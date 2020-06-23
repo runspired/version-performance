@@ -1,0 +1,60 @@
+name: PerformanceCheck
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  analyze-2.18-3.18:
+    name: Analyze 2.18 to 3.18 Bump
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 0
+      - uses: tracerbench/tracerbench-compare-action@master
+        with:
+          experiment-url: 'http://localhost:4201/'
+          control-url: 'http://localhost:4200/'
+          build-control: false
+          build-experiment: false
+          control-dist: './dist-2-18'
+          experiment-dist: './dist-3-18'
+          markers: 'domComplete'
+          regression-threshold: 25
+          fidelity: high
+  analyze-2.18-3.18-upgraded:
+    name: Analyze 2.18 to 3.18 with Octane Updates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 0
+      - uses: tracerbench/tracerbench-compare-action@master
+        with:
+          experiment-url: 'http://localhost:4201/'
+          control-url: 'http://localhost:4200/'
+          build-control: false
+          build-experiment: false
+          control-dist: './dist-2-18'
+          experiment-dist: './dist-3-18-upgraded'
+          markers: 'domComplete'
+          regression-threshold: 25
+          fidelity: high
+  analyze-PR:
+    name: Analyze 2.18 to Current PR Status
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 0
+      - uses: tracerbench/tracerbench-compare-action@master
+        with:
+          experiment-url: 'http://localhost:4201/'
+          control-url: 'http://localhost:4200/'
+          build-control: false
+          control-dist: './dist-2-18'
+          markers: 'domComplete'
+          regression-threshold: 25
+          fidelity: high
