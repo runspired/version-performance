@@ -18,6 +18,7 @@ jobs:
           node-version: 12.x
       - uses: tracerbench/tracerbench-compare-action@master
         with:
+          control-sha: $(git rev-parse --short=8 runspired/master)
           experiment-url: 'http://localhost:4201/'
           control-url: 'http://localhost:4200/'
           build-control: false
@@ -41,6 +42,7 @@ jobs:
           node-version: 12.x
       - uses: tracerbench/tracerbench-compare-action@master
         with:
+          control-sha: $(git rev-parse --short=8 runspired/master)
           experiment-url: 'http://localhost:4201/'
           control-url: 'http://localhost:4200/'
           build-control: false
@@ -64,6 +66,7 @@ jobs:
           node-version: 12.x
       - uses: tracerbench/tracerbench-compare-action@master
         with:
+          control-sha: $(git rev-parse --short=8 runspired/master)
           experiment-url: 'http://localhost:4201/'
           control-url: 'http://localhost:4200/'
           build-control: false
