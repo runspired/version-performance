@@ -1,0 +1,2 @@
+2020-06-23T17:52:16.220Z [warn] WARNING: {{console-time}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/application.hbs
+2020-06-23T17:52:16.222Z [warn] WARNING: {{console-time-end}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/application.hbs
