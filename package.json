@@ -64,5 +64,8 @@
   "bugs": {
     "url": "https://github.com/barisnisanci/version-performance/issues"
   },
-  "homepage": "https://github.com/barisnisanci/version-performance#readme"
+  "homepage": "https://github.com/barisnisanci/version-performance#readme",
+  "dependencies": {
+    "tracerbench": "3.0.11"
+  }
 }
