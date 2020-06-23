@@ -25,8 +25,8 @@ jobs:
           build-experiment: false
           control-dist: './dist-2-18'
           experiment-dist: './dist-3-18'
-          control-serve-command: ember s --path=dist-2-18
-          experiment-serve-command: ember s --path=dist-3-18 --port=4201
+          control-serve-command: 'ember s --path=./dist-2-18'
+          experiment-serve-command: 'ember s --path=./dist-3-18 --port=4201'
           markers: 'domComplete'
           regression-threshold: 25
           fidelity: high
@@ -49,8 +49,8 @@ jobs:
           build-experiment: false
           control-dist: './dist-2-18'
           experiment-dist: './dist-3-18-upgraded'
-          control-serve-command: ember s --path=dist-2-18
-          experiment-serve-command: ember s --path=dist-3-18-upgraded --port=4201
+          control-serve-command: 'ember s --path=./dist-2-18'
+          experiment-serve-command: 'ember s --path=./dist-3-18-upgraded --port=4201'
           markers: 'domComplete'
           regression-threshold: 25
           fidelity: high
@@ -71,7 +71,7 @@ jobs:
           control-url: 'http://localhost:4200/'
           build-control: false
           control-dist: './dist-2-18'
-          control-serve-command: ember s --path=dist-2-18
+          control-serve-command: 'ember s --path=./dist-2-18'
           markers: 'domComplete'
           regression-threshold: 25
           fidelity: high
