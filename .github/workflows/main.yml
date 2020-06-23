@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - uses: tracerbench/tracerbench-compare-action@master
+      - uses: runspired/version-performance@master
         with:
           control-sha: $(git rev-parse --short=8 runspired/master)
           experiment-url: 'http://localhost:4201/'
@@ -30,7 +30,6 @@ jobs:
           markers: 'domComplete'
           regression-threshold: 25
           fidelity: high
-        shell: bash
   analyze-2-3-upgraded:
     name: Analyze 2.18 to 3.18 with Octane Updates
     runs-on: ubuntu-latest
@@ -41,7 +40,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - uses: tracerbench/tracerbench-compare-action@master
+      - uses: runspired/version-performance@master
         with:
           control-sha: $(git rev-parse --short=8 runspired/master)
           experiment-url: 'http://localhost:4201/'
@@ -65,7 +64,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - uses: tracerbench/tracerbench-compare-action@master
+      - uses: runspired/version-performance@master
         with:
           control-sha: $(git rev-parse --short=8 runspired/master)
           experiment-url: 'http://localhost:4201/'
