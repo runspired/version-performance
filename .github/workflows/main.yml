@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  analyze-2.18-3.18:
+  analyze-2-3:
     name: Analyze 2.18 to 3.18 Bump
     runs-on: ubuntu-latest
     steps:
@@ -24,7 +24,7 @@ jobs:
           markers: 'domComplete'
           regression-threshold: 25
           fidelity: high
-  analyze-2.18-3.18-upgraded:
+  analyze-2-3-upgraded:
     name: Analyze 2.18 to 3.18 with Octane Updates
     runs-on: ubuntu-latest
     steps:
