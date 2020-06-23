@@ -44,7 +44,6 @@ inputs:
     description: 'markers, comma separated'
 runs:
   using: 'node12'
-  shell: 'bash'
   main: 'src/action.js'
 branding:
   icon: 'activity'

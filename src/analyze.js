@@ -6,7 +6,7 @@ const TracerbenchExecutable = path.resolve(__dirname, '../node_modules/tracerben
 
 async function execWithLog(cmd) {
   console.log(`\n🟡 ${cmd}\n`);
-  let exe = execa.command(cmd, { shell: true });
+  let exe = execa.command(cmd, { shell: 'bash' });
   exe.stdout.pipe(process.stdout);
   exe.stderr.pipe(process.stderr);
 
@@ -144,7 +144,7 @@ async function startServer(config, variant) {
     let url = config[`${variant}-url`];
 
     console.log(`\n🔶Starting Server (${variant}): ${cmd}\n`);
-    let server = execa.command(cmd, { shell: true });
+    let server = execa.command(cmd, { shell: 'bash' });
     await waitForServer(url);
     console.log(`\n🟢Server Started\n`);
 
