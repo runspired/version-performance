@@ -1,4 +1,4 @@
-name: 'version-performance/tracerbench-compare-action'
+name: 'runspired/version-performance'
 description: 'Perform commit-to-commit performance analysis using tracerbench'
 inputs:
   use-yarn:
@@ -44,6 +44,7 @@ inputs:
     description: 'markers, comma separated'
 runs:
   using: 'node12'
+  shell: 'bash'
   main: 'src/action.js'
 branding:
   icon: 'activity'
