@@ -8,6 +8,10 @@
 /bower_components/
 /node_modules/
 
+/generated-tracerbench-config.tmp.json
+tracerbench-results/
+.DS_Store
+
 # misc
 /.env*
 /.pnp*
@@ -18,6 +22,7 @@
 /npm-debug.log*
 /testem.log
 /yarn-error.log
+/tracerbench-results/*
 
 # ember-try
 /.node_modules.ember-try/

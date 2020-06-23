@@ -6,10 +6,9 @@ const browsers = [
   'last 1 Safari versions'
 ];
 
-const isCI = !!process.env.CI;
-const isProduction = process.env.EMBER_ENV === 'production';
+const isIE11 = process.env.TARGET === 'ie11';
 
-if (isCI || isProduction) {
+if (isIE11) {
   browsers.push('ie 11');
 }
 
