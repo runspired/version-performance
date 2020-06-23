@@ -77,10 +77,10 @@ async function normalizeConfig(config = {}) {
     await add ('experiment-ref', () => getRefForHEAD())
     await add('control-dist', 'dist-control');
     await add('experiment-dist', 'dist-experiment');
-    await add('control-build-command', `ember build -e production --output-path ${config['control-dist']}`);
-    await add('experiment-build-command', `ember build -e production --output-path ${config['experiment-dist']}`);
-    await add('control-serve-command', `ember s --path=${config['control-dist']} --port=4200`);
-    await add('experiment-serve-command', `ember s --path=${config['experiment-dist']} --port=4201`);
+    await add('control-build-command', `yarn build -e production --output-path ${config['control-dist']}`);
+    await add('experiment-build-command', `yarn build -e production --output-path ${config['experiment-dist']}`);
+    await add('control-serve-command', `yarn start --path=${config['control-dist']} --port=4200`);
+    await add('experiment-serve-command', `yarn start --path=${config['experiment-dist']} --port=4201`);
     await add('control-url', 'http://localhost:4200?tracing=true');
     await add('experiment-url', 'http://localhost:4201?tracing=true');
     await add('fidelity', 'low');
