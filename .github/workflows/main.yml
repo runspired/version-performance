@@ -9,7 +9,6 @@ jobs:
   analyze-2-3:
     name: Analyze 2.18 to 3.18 Bump
     runs-on: ubuntu-latest
-    shell: bash
     steps:
       - uses: actions/checkout@v1
         with:
@@ -18,6 +17,7 @@ jobs:
         with:
           node-version: 12.x
       - uses: tracerbench/tracerbench-compare-action@master
+        shell: bash
         with:
           control-sha: $(git rev-parse --short=8 runspired/master)
           experiment-url: 'http://localhost:4201/'
@@ -34,7 +34,6 @@ jobs:
   analyze-2-3-upgraded:
     name: Analyze 2.18 to 3.18 with Octane Updates
     runs-on: ubuntu-latest
-    shell: bash
     steps:
       - uses: actions/checkout@v1
         with:
@@ -43,6 +42,7 @@ jobs:
         with:
           node-version: 12.x
       - uses: tracerbench/tracerbench-compare-action@master
+        shell: bash
         with:
           control-sha: $(git rev-parse --short=8 runspired/master)
           experiment-url: 'http://localhost:4201/'
@@ -59,7 +59,6 @@ jobs:
   analyze-PR:
     name: Analyze 2.18 to Current PR Status
     runs-on: ubuntu-latest
-    shell: bash
     steps:
       - uses: actions/checkout@v1
         with:
@@ -68,6 +67,7 @@ jobs:
         with:
           node-version: 12.x
       - uses: tracerbench/tracerbench-compare-action@master
+        shell: bash
         with:
           control-sha: $(git rev-parse --short=8 runspired/master)
           experiment-url: 'http://localhost:4201/'
