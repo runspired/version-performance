@@ -1,7 +1,7 @@
 {{console-time "render_ended"}}
 <table>
 <tbody>
-  {{#each items as |row index|}}
+  {{#each this.items as |row index|}}
     <TR @row={{row}} @rowIndex={{rowIndex}} />
   {{/each}}
   </tbody>

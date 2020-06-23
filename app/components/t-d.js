@@ -1,9 +1,7 @@
-import Component from '@ember/component'
-import { computed } from '@ember/object'
+import Component from '@glimmer/component';
 
-export default Component.extend({
-  tagName : '',
-  cellValue: computed('column', 'columnIndex', 'rowIndex', function() {
-    return this.column;
-  })
-})
+export default class TD extends Component {
+  get cellValue() {
+    return this.args.column;
+  }
+}
