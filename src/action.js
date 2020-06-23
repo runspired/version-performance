@@ -16,7 +16,13 @@ const configProperties = [
   'experiment-dist',
   'control-url',
   'experiment-url',
-  'markers'
+  'markers',
+  'fidelity',
+  'runtime-stats',
+  'report',
+  'headless',
+  'regression-threshold',
+  'clean-after-analyze'
 ];
 const config = {};
 
