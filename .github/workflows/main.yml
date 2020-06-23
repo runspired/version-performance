@@ -7,16 +7,13 @@ on:
 
 jobs:
   analyze-2-3:
-    name: Analyze 2.18 to 3.18 Bump
+    name: 2.18 to 3.18
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-      - uses: runspired/version-performance@v/3.18-upgraded
+      - uses: runspired/version-performance@master
         with:
           build-control: false
           build-experiment: false
@@ -26,45 +23,32 @@ jobs:
           fidelity: high
           clean-after-analyze: false
   analyze-2-3-upgraded:
-    name: Analyze 2.18 to 3.18 with Octane Updates
+    name: 2.18 to Octane
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v1
+      - uses: runspired/version-performance@master
         with:
-          node-version: 12.x
-      - uses: runspired/version-performance@v/3.18-upgraded
-        with:
-          experiment-url: 'http://localhost:4201/'
-          control-url: 'http://localhost:4200/'
           build-control: false
           build-experiment: false
           control-dist: './dist-2-18'
           experiment-dist: './dist-3-18-upgraded'
-          control-serve-command: 'ember s --path=./dist-2-18'
-          experiment-serve-command: 'ember s --path=./dist-3-18-upgraded --port=4201'
-          markers: 'domComplete'
           regression-threshold: 25
           fidelity: high
+          clean-after-analyze: false
   analyze-PR:
-    name: Analyze 2.18 to Current PR Status
+    name: 2.18 to PR
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
         with:
           fetch-depth: 0      
-      - uses: actions/setup-node@v1
+      - uses: runspired/version-performance@master
         with:
-          node-version: 12.x
-      - uses: runspired/version-performance@v/3.18-upgraded
-        with:
-          experiment-url: 'http://localhost:4201/'
-          control-url: 'http://localhost:4200/'
           build-control: false
           control-dist: './dist-2-18'
-          control-serve-command: 'ember s --path=./dist-2-18'
-          markers: 'domComplete'
           regression-threshold: 25
           fidelity: high
+          clean-after-analyze: false
