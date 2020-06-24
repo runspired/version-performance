@@ -26,7 +26,7 @@ jobs:
           yarn add --dev ember-source@~${{ matrix.ember }}
           yarn install
       - name: Run Analysis for ${{ matrix.ember }} (${{ matrix.target }})
-        timeout-minutes: 5
+        timeout-minutes: 10
         uses: tracerbench/tracerbench-compare-action@fix-action
         with:
           build-control: false
