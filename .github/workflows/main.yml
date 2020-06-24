@@ -15,16 +15,16 @@ jobs:
     name: 2.18 to ${{ matrix.ember }} ${{ matrix.target }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
         with:
-          fetch-depth: 0
+          fetch-depth: 1
       - uses: actions/setup-node@v1
         with:
           node-version: 12.x
       - name: Install dependencies
         run: |
-          yarn install
           yarn add --dev ember-source@~${{ matrix.ember }}
+          yarn install
       - uses: tracerbench/tracerbench-compare-action@fix-action
         with:
           build-control: false
