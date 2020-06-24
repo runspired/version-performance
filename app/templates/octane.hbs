@@ -1,0 +1,7 @@
+<table>
+  <tbody>
+  {{#each this.model.items as |row index|}}
+    <OctaneTR @row={{row}} @rowIndex={{rowIndex}} />
+  {{/each}}
+  </tbody>
+</table>
