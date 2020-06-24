@@ -12,7 +12,7 @@ jobs:
       matrix: 
         ember: ['3.0', 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, '3.10', 3.11, 3.12, 3.13, 3.14, 3.15, 3.16, 3.17, 3.18, 3.19]
         target: [ie11, modern]
-    name: 2.18 to ${{ matrix.ember }} ${{ matrix.target }}
+    name: Ember ${{ matrix.ember }} targeting ${{ matrix.target }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -25,7 +25,9 @@ jobs:
         run: |
           yarn add --dev ember-source@~${{ matrix.ember }}
           yarn install
-      - uses: tracerbench/tracerbench-compare-action@fix-action
+      - name: Run Analysis for ${{ matrix.ember }} (${{ matrix.target }})
+        timeout-minutes: 5
+        uses: tracerbench/tracerbench-compare-action@fix-action
         with:
           build-control: false
           experiment-build-command: TARGET=${{ matrix.target }} node node_modules/.bin/ember build -e production --output-path=dist-${{matrix.ember}}-${{ matrix.target }}
