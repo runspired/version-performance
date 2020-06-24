@@ -34,7 +34,7 @@ jobs:
           control-url: http://localhost:4200/classic?tracing=true 
           experiment-url: http://localhost:4201/classic?tracing=true
           regression-threshold: 25
-          fidelity: low
+          fidelity: high
           markers: 'navigationStart,after-model,begin-first-paint'
       - name: Upload Tracerbench Artifacts
         if: failure() || success()
