@@ -1,7 +1,7 @@
 <table>
-<tbody>
-  {{#each model.items as |row index|}}
-    {{t-r row=row rowIndex=rowIndex}}
-  {{/each}}
+  <tbody>
+    {{#each this.model.items as |row|}}
+    {{t-r row=row}}
+    {{/each}}
   </tbody>
 </table>
